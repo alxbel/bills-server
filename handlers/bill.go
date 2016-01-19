@@ -5,8 +5,8 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"github.com/gorilla/context"
 	"net/http"
-	"kommunalka-server/repo"
 	"log"
+	"bills-server/repo"
 )
 
 func (c *AppContext) BillsHandler(w http.ResponseWriter, r *http.Request) {

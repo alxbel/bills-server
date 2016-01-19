@@ -5,7 +5,7 @@ import (
 	"github.com/gorilla/context"
 	"github.com/justinas/alice"
 	"net/http"
-	"kommunalka-server/handlers"
+	"bills-server/handlers"
 )
 
 func main() {

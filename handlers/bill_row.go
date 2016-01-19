@@ -1,11 +1,12 @@
 package handlers
+
 import (
 	"net/http"
 	"github.com/julienschmidt/httprouter"
 	"github.com/gorilla/context"
-	"kommunalka-server/repo"
 	"encoding/json"
 	"log"
+	"bills-server/repo"
 )
 
 func (c *AppContext) BillRowsHandler(w http.ResponseWriter, r *http.Request) {

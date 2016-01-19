@@ -2,9 +2,9 @@ package handlers
 
 import (
 	"net/http"
-	"kommunalka-server/repo"
 	"encoding/json"
 	"log"
+	"bills-server/repo"
 )
 
 func (c *AppContext) PublicUtilitiesHandler(w http.ResponseWriter, r *http.Request) {

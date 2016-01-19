@@ -5,6 +5,7 @@ import (
 	"github.com/gorilla/context"
 	"github.com/justinas/alice"
 	"net/http"
+	"kommunalka-server/handlers"
 )
 
 func main() {
@@ -15,11 +16,13 @@ func main() {
 	defer session.Close()
 	session.SetMode(mgo.Monotonic, true)
 
-	appC := appContext{session.DB("bills")}
+	appC := handlers.AppContext{session.DB("bills")}
 	commonHandlers := alice.New(context.ClearHandler, loggingHandler, recoverHandler, acceptHandler)
 
 	router := NewRouter()
-	router.Get("/bills/:year", commonHandlers.ThenFunc(appC.billsHandler))
+	router.Get("/bills/:year", commonHandlers.ThenFunc(appC.BillsHandler))
+	router.Get("/rows/:billId", commonHandlers.ThenFunc(appC.BillRowsHandler))
+	router.Get("/PUCatalog", commonHandlers.ThenFunc(appC.PublicUtilitiesHandler))
 
 	http.ListenAndServe(":8080", router)
 }

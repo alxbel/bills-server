@@ -1,0 +1,81 @@
+{
+	_id: "user1",
+	bills: [
+		{
+			_id: ObjectId("5698cc36127d85b94ec337da"),
+			year: 2016,
+			month: "Январь",
+			value: 5000,
+			rows:  [
+				{
+					"_id":  ObjectId("5698df3b127d85b94ec337e0"),
+					"publicUtility": { "name": "Горячая Вода (Ванная)" },
+					"value":1000
+				},
+				{
+					"_id": ObjectId("5698df3c127d85b94ec337e1"),
+					"publicUtility": { "name": "Газ" },
+					"value":10
+				},
+				{
+					"_id": ObjectId("5698df3c127d85b94ec337e2"),
+					"publicUtility": { "name": "Телефон" },
+					"value":300
+				},
+				{
+					"_id": ObjectId("5698df3d127d85b94ec337e3"),
+					"publicUtility": { "name": "Электричество (День)" },
+					"value":640
+				},
+				{
+					"_id": ObjectId("5698df3d127d85b94ec337e4"),
+					"publicUtility": { "name": "Коммунальные платежи по квитанции" },
+					"value":7450
+				}
+			]
+		},
+		{
+			_id: ObjectId("5698cc3b127d85b94ec337db"),
+			year: 2016,
+			month: "Февраль",
+			value: 6000,
+			rows: [
+				{
+					"_id": ObjectId("569c95e6873695245c143036"),
+					"publicUtility": { "name": "Горячая Вода (Кухня)" },
+					"value":1500
+				}
+			]
+		},
+		{
+			_id: ObjectId("5698cc3d127d85b94ec337dc"),
+			year: 2016,
+			month: "Март",
+			value: 7000,
+			rows: []
+		}
+	]
+}
+{
+	_id: "user2",
+	bills: [
+		{
+			_id: ObjectId("5698cc3f127d85b94ec337dd"),
+			year: 2016,
+			month: "Январь",
+			value: 8000
+		},
+		{
+			_id: ObjectId("5698cc3f127d85b94ec337de"),
+			year: 2016,
+			month: "Февраль",
+			value: 4500
+		},
+		{
+			_id: ObjectId("5698cc40127d85b94ec337df"),
+			year: 2016,
+			month: "Март",
+			value: 5900
+		}
+	]
+}

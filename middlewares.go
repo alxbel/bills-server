@@ -10,7 +10,6 @@ func acceptHandler(next http.Handler) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		if r.Header.Get("Accept") != "application/vnd.api+json" {
 			WriteError(w, ErrNotAcceptable)
-
 			return
 		}
 

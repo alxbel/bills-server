@@ -62,3 +62,23 @@ func (r *BillRowRepo) All(id string) (BillRowsCollection, error) {
 
 	return rowsC, nil
 }
+
+func (r *BillRowRepo) Delete(bid string, rid string) error {
+	query := bson.M{
+		"bills._id": bson.ObjectIdHex(bid),
+	}
+
+	delete := bson.M{
+		"$pull": bson.M{
+			"bills.$.rows": bson.M{
+				"_id": bson.ObjectIdHex(rid),
+			},
+		},
+	}
+
+	if err := r.Coll.Update(query, delete); err != nil {
+		return err
+	}
+
+	return nil
+}

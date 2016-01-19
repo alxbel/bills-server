@@ -14,6 +14,10 @@ func (r *router) Get(path string, handler http.Handler) {
 	r.GET(path, wrapHandler(handler))
 }
 
+func (r *router) Delete(path string, handler http.Handler) {
+	r.DELETE(path, wrapHandler(handler))
+}
+
 func wrapHandler(h http.Handler) httprouter.Handle {
 	return func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 		context.Set(r, "params", ps)

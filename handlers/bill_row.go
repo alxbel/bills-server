@@ -21,3 +21,12 @@ func (c *AppContext) BillRowsHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/vnd.api+json")
 	json.NewEncoder(w).Encode(rowsC.Data)
 }
+
+func (c *AppContext) DeleteRowHandler(w http.ResponseWriter, r *http.Request) {
+	params := context.Get(r, "params").(httprouter.Params)
+	repo := repo.BillRowRepo{c.DB.C("bills")}
+	if err := repo.Delete(params.ByName("bid"), params.ByName("rid")); err != nil {
+		panic(err)
+	}
+	json.NewEncoder(w).Encode(true)
+}

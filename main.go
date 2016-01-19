@@ -23,6 +23,8 @@ func main() {
 	router.Get("/bills/:year", commonHandlers.ThenFunc(appC.BillsHandler))
 	router.Get("/rows/:billId", commonHandlers.ThenFunc(appC.BillRowsHandler))
 	router.Get("/PUCatalog", commonHandlers.ThenFunc(appC.PublicUtilitiesHandler))
+	router.Delete("/deleteBill/:id", commonHandlers.ThenFunc(appC.DeleteBillHandler))
+	router.Delete("/deleteBillRow/:bid/:rid", commonHandlers.ThenFunc(appC.DeleteRowHandler))
 
 	http.ListenAndServe(":8080", router)
 }

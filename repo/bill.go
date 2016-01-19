@@ -4,6 +4,7 @@ import (
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 	"strconv"
+	"log"
 )
 
 // Bill
@@ -59,4 +60,25 @@ func (r *BillRepo) All(year string) (BillsCollection, error) {
 	}
 
 	return billsC[0], nil
+}
+
+func (r *BillRepo) Delete(id string) error {
+	log.Println("Delete bill", id)
+	query := bson.M{
+		"_id": "user1",
+	}
+
+	delete := bson.M{
+		"$pull": bson.M{
+			"bills": bson.M{
+				"_id": bson.ObjectIdHex(id),
+			},
+		},
+	}
+
+	if err := r.Coll.Update(query, delete); err != nil {
+		return err
+	}
+
+	return nil
 }
